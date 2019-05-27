@@ -14,7 +14,6 @@ contexts:
 
   main:
     - include: machine
-    - include: snapshot
     - include: flash
     - include: macro
     - include: test
@@ -35,21 +34,6 @@ contexts:
         - match: '{{identifier}}'
           scope: entity.name.testo
           pop: true
-
-  snapshot:
-    - match: '\bsnapshot\b'
-      scope: keyword.control.testo
-      set:
-        - match: '{{identifier}}'
-          scope: entity.name.testo
-          set:
-            - match: ':'
-              set:
-                - match: '{{identifier}}'
-                  scope: entity.other.inherited-class.testo
-                  pop: true
-            - match: '{'
-              pop: true
 
   flash:
     - match: '\bflash\b'
@@ -87,17 +71,11 @@ contexts:
             - match: ':'
               set:
                 - match: '{{identifier}}'
-                  set:
-                    - match: '\('
-                      scope: punctuation.section.group.begin.testo
-                      push:
-                        - match: '{{identifier}}'
-                          scope: entity.other.inherited-class.testo
-                        - match: '\)'
-                          scope: punctuation.section.group.end.testo
-                          pop: true
-                    - match: '{'
-                      pop: true
+                  scope: entity.other.inherited-class.testo
+                - match: '{'
+                  pop: true
+            - match: '{'
+              pop: true
 
   keywords:
     - match: '\binclude\b'
@@ -160,7 +138,7 @@ contexts:
       scope: keyword.operator.logical.testo
 
   actions:
-    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|set|copyto|copyfrom)\b'
+    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|set|copyto|copyfrom|shutdown)\b'
       scope: support.function.testo
 
   comments:
