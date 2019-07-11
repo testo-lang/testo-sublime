@@ -138,7 +138,7 @@ contexts:
       scope: keyword.operator.logical.testo
 
   actions:
-    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|set|copyto|copyfrom|shutdown)\b'
+    - match: '\b(type|wait|abort|print|press|plug|unplug|start|stop|exec|set|copyto|copyfrom|shutdown)\b'
       scope: support.function.testo
 
   comments:
