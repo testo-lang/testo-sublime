@@ -19,6 +19,7 @@ contexts:
     - include: test
     - include: keywords
     - include: numbers
+    - include: bools
     - include: var_refs
     - include: time_intervals
     - include: size_specifiers
@@ -87,6 +88,10 @@ contexts:
     - match: '\b[0-9.]+\b'
       scope: constant.numeric.testo
 
+  bools:
+    - match: '\b(true|false)\b'
+      scope: constant.language.testo
+
   var_refs:
     - match: '\$'
       scope: punctuation.definition.variable.testo
@@ -138,7 +143,7 @@ contexts:
       scope: keyword.operator.logical.testo
 
   actions:
-    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|set|copyto|copyfrom|shutdown)\b'
+    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|copyto|copyfrom|shutdown|print|abort)\b'
       scope: support.function.testo
 
   comments:
