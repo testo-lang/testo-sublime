@@ -15,6 +15,7 @@ contexts:
   main:
     - include: machine
     - include: flash
+    - include: network
     - include: macro
     - include: test
     - include: keywords
@@ -38,6 +39,14 @@ contexts:
 
   flash:
     - match: '\bflash\b'
+      scope: keyword.control.testo
+      push:
+        - match: '{{identifier}}'
+          scope: entity.name.testo
+          pop: true
+
+  network:
+    - match: '\bnetwork\b'
       scope: keyword.control.testo
       push:
         - match: '{{identifier}}'
