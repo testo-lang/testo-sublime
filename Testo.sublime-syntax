@@ -101,18 +101,6 @@ contexts:
     - match: '\b(true|false)\b'
       scope: constant.language.testo
 
-  var_refs:
-    - match: '\$'
-      scope: punctuation.definition.variable.testo
-      push:
-        - match: '{{identifier}}'
-          scope: variable.other.testo
-        - match: '\b'
-          pop: true
-
-    - match: '\b\${{identifier}}\b'
-      scope: constant.numeric.testo
-
   time_intervals:
     - match: '\b[0-9.]+(s|m|h|ms)\b'
       scope: constant.other
@@ -127,6 +115,8 @@ contexts:
       push:
         - meta_include_prototype: false
         - meta_scope: string.quoted.double.testo
+        - match: '\${{{identifier}}}'
+          scope: punctuation.definition.variable.testo
         - match: '\\.'
           scope: constant.character.escape.testo
         - match: '"'
@@ -137,6 +127,13 @@ contexts:
       push:
         - meta_include_prototype: false
         - meta_scope: string.quoted.other
+        - match: '\${'
+          scope: punctuation.definition.variable.testo
+          push:
+            - match: '{{identifier}}'
+              scope: variable.other.testo
+            - match: '}'
+              pop: true
         - match: '\\.'
           scope: constant.character.escape.testo
         - match: '"""'
