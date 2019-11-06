@@ -24,6 +24,7 @@ contexts:
     - include: var_refs
     - include: time_intervals
     - include: size_specifiers
+    - include: multiline_strings
     - include: strings
     - include: comparisons
     - include: ops
@@ -122,6 +123,8 @@ contexts:
         - match: '"'
           scope: punctuation.definition.string.end.testo
           pop: true
+
+  multiline_strings:
     - match: '"""'
       scope: punctuation.definition.string.begin.testo
       push:
@@ -134,9 +137,7 @@ contexts:
               scope: variable.other.testo
             - match: '}'
               pop: true
-        - match: '\\.'
-          scope: constant.character.escape.testo
-        - match: '"""'
+        - match: '"""+'
           scope: punctuation.definition.string.end.testo
           pop: true
 
