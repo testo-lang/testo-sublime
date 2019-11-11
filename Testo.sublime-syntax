@@ -25,6 +25,7 @@ contexts:
     - include: time_intervals
     - include: size_specifiers
     - include: multiline_strings
+    - include: backqouted_strings
     - include: strings
     - include: comparisons
     - include: ops
@@ -138,6 +139,23 @@ contexts:
             - match: '}'
               pop: true
         - match: '"""+'
+          scope: punctuation.definition.string.end.testo
+          pop: true
+
+  backqouted_strings:
+    - match: '`'
+      scope: punctuation.definition.string.begin.testo
+      push:
+        - meta_include_prototype: false
+        - meta_scope: string.quoted.other
+        - match: '\${'
+          scope: punctuation.definition.variable.testo
+          push:
+            - match: '{{identifier}}'
+              scope: variable.other.testo
+            - match: '}'
+              pop: true
+        - match: '`'
           scope: punctuation.definition.string.end.testo
           pop: true
 
