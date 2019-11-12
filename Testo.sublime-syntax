@@ -131,13 +131,8 @@ contexts:
       push:
         - meta_include_prototype: false
         - meta_scope: string.quoted.other
-        - match: '\${'
+        - match: '\${{{identifier}}}'
           scope: punctuation.definition.variable.testo
-          push:
-            - match: '{{identifier}}'
-              scope: variable.other.testo
-            - match: '}'
-              pop: true
         - match: '"""+'
           scope: punctuation.definition.string.end.testo
           pop: true
@@ -148,13 +143,8 @@ contexts:
       push:
         - meta_include_prototype: false
         - meta_scope: string.quoted.other
-        - match: '\${'
+        - match: '\${{{identifier}}}'
           scope: punctuation.definition.variable.testo
-          push:
-            - match: '{{identifier}}'
-              scope: variable.other.testo
-            - match: '}'
-              pop: true
         - match: '`'
           scope: punctuation.definition.string.end.testo
           pop: true
