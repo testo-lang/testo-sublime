@@ -133,6 +133,8 @@ contexts:
         - meta_scope: string.quoted.other
         - match: '\${{{identifier}}}'
           scope: punctuation.definition.variable.testo
+        - match: '\\.'
+          scope: constant.character.escape.testo
         - match: '"""+'
           scope: punctuation.definition.string.end.testo
           pop: true
