@@ -17,6 +17,7 @@ contexts:
     - include: flash
     - include: network
     - include: macro
+    - include: param
     - include: test
     - include: keywords
     - include: numbers
@@ -72,6 +73,14 @@ contexts:
                   pop: true
             - match: '{'
               pop: true
+
+  param:
+    - match: '\bparam\b'
+      scope: keyword.control.testo
+      push:
+        - match: '{{identifier}}'
+          scope: entity.name.testo
+          pop: true
 
   test:
     - match: '\btest\b'
