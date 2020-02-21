@@ -169,7 +169,7 @@ contexts:
       scope: keyword.operator.logical.testo
 
   actions:
-    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|copyto|copyfrom|shutdown|print|abort)\b'
+    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|copyto|copyfrom|shutdown|print|abort|mouse)\b'
       scope: support.function.testo
 
   comments:
