@@ -30,6 +30,7 @@ contexts:
     - include: strings
     - include: comparisons
     - include: ops
+    - include: mouse
     - include: actions
 
   machine:
@@ -157,8 +158,17 @@ contexts:
     - match: '\b(NOT|AND|OR|check)\b'
       scope: keyword.operator.logical.testo
 
+  mouse:
+    - match: '\bmouse\b'
+      scope: support.function.testo
+      push:
+        - match: '\b(click|lclick|rclick|dclick|hold|release)\b'
+          pop: true
+        - match: '\S'
+          pop: true
+
   actions:
-    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|copyto|copyfrom|shutdown|print|abort|mouse|sleep)\b'
+    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|copyto|copyfrom|shutdown|print|abort|mouse|sleep|hold|release)\b'
       scope: support.function.testo
 
   comments:
