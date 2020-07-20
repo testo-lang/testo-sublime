@@ -152,7 +152,7 @@ contexts:
           pop: true
 
   comparisons:
-    - match: '\b(EQUAL|LESS|GREATER|STREQUAL|STRGREATER|STRLESS|RANGE)\b'
+    - match: '\b(EQUAL|LESS|GREATER|STREQUAL|STRGREATER|STRLESS|RANGE|DEFINED)\b'
       scope: keyword.operator.comparison.testo
 
   ops:
