@@ -14,6 +14,7 @@ contexts:
 
   main:
     - include: machine
+    - include: plug
     - include: flash
     - include: network
     - include: macro
@@ -165,6 +166,17 @@ contexts:
         - match: '\b(click|lclick|rclick|dclick|hold|release)\b'
           pop: true
         - match: '\S'
+          pop: true
+
+  plug:
+    - match: '\b(plug|unplug)\b'
+      scope: support.function.testo
+      push:
+        - include: strings
+        - match: '\n'
+          pop: true
+        - match: '{{identifier}}'
+          scope: entity.name.testo
           pop: true
 
   actions:
