@@ -85,22 +85,6 @@ contexts:
           scope: entity.name.testo
           pop: true
 
-  test:
-    - match: '\btest\b'
-      scope: keyword.control.testo
-      set:
-        - match: '{{identifier}}'
-          scope: entity.name.testo
-          set:
-            - match: ':'
-              set:
-                - match: '{{identifier}}'
-                  scope: entity.other.inherited-class.testo
-                - match: '{'
-                  pop: true
-            - match: '{'
-              pop: true
-
   keywords:
     - match: '\binclude\b'
       scope: keyword.control.import.testo
@@ -149,6 +133,37 @@ contexts:
           scope: constant.character.escape.testo
         - match: '"""+'
           scope: punctuation.definition.string.end.testo
+          pop: true
+
+  test:
+    - match: '\btest\b'
+      scope: keyword.control.testo
+      set:
+        - match: '{{identifier}}'
+          scope: entity.name.testo
+          set:
+            - match: ':'
+              set:
+                - match: '{{identifier}}'
+                  scope: entity.other.inherited-class.testo
+                - match: '{'
+                  pop: true
+                - include: strings
+                - match: '{'
+                  pop: true
+            - match: '{'
+              pop: true
+        - include: strings
+        - match: ':'
+          set:
+            - match: '{{identifier}}'
+              scope: entity.other.inherited-class.testo
+            - match: '{'
+              pop: true
+            - include: strings
+            - match: '{'
+              pop: true
+        - match: '{'
           pop: true
 
   comparisons:
