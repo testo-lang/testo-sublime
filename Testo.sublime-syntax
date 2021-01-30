@@ -41,6 +41,9 @@ contexts:
         - match: '{{identifier}}'
           scope: entity.name.testo
           pop: true
+        - include: strings
+        - match: '{'
+          pop: true
 
   flash:
     - match: '\bflash\b'
@@ -49,6 +52,9 @@ contexts:
         - match: '{{identifier}}'
           scope: entity.name.testo
           pop: true
+        - include: strings
+        - match: '{'
+          pop: true
 
   network:
     - match: '\bnetwork\b'
@@ -56,6 +62,9 @@ contexts:
       push:
         - match: '{{identifier}}'
           scope: entity.name.testo
+          pop: true
+        - include: strings
+        - match: '{'
           pop: true
 
   macro:
