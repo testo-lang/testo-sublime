@@ -204,7 +204,7 @@ contexts:
           pop: true
 
   actions:
-    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|copyto|copyfrom|shutdown|print|abort|mouse|sleep|hold|release)\b'
+    - match: '\b(type|wait|press|plug|unplug|start|stop|exec|copyto|copyfrom|shutdown|print|abort|mouse|sleep|hold|release|screenshot)\b'
       scope: support.function.testo
 
   comments:
