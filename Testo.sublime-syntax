@@ -124,6 +124,8 @@ contexts:
         - meta_scope: string.quoted.double.testo
         - match: '\${{{identifier}}}'
           scope: punctuation.definition.variable.testo
+        - match: '\$<{{identifier}}>'
+          scope: punctuation.definition.variable.testo
         - match: '\\.'
           scope: constant.character.escape.testo
         - match: '"'
@@ -137,6 +139,8 @@ contexts:
         - meta_include_prototype: false
         - meta_scope: string.quoted.other
         - match: '\${{{identifier}}}'
+          scope: punctuation.definition.variable.testo
+        - match: '\$<{{identifier}}>'
           scope: punctuation.definition.variable.testo
         - match: '\\.'
           scope: constant.character.escape.testo
